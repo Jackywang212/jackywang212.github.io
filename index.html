@@ -5,23 +5,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEXTWORLD - 化粧品・健康食品OEM</title>
+    <style>
+        body {
+            font-family: "Hiragino Kaku Gothic Pro", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 20px 40px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        header h1 {
+            margin: 0;
+            color: #004080;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: bold;
+        }
+        section {
+            padding: 60px 40px;
+            max-width: 1000px;
+            margin: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        section.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .hero {
+            text-align: center;
+        }
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .service-box {
+            flex: 1 1 45%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #eaeaea;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
-<body style="font-family:sans-serif; max-width:800px; margin:auto; padding:20px;">
-    <h1>NEXTWORLD（ネクストワールド）</h1>
-    <h2>会社概要</h2>
-    <p>NEXTWORLDは、化粧品および健康食品のOEM製造に特化した企業です。高品質・安全性・信頼性を第一に、お客様のご要望に合わせた製品づくりをサポートします。</p>
+<body>
+    <header>
+        <h1>NEXTWORLD</h1>
+        <nav>
+            <a href="#about">会社概要</a>
+            <a href="#services">サービス</a>
+            <a href="#contact">お問い合わせ</a>
+        </nav>
+    </header>
 
-    <h2>サービス内容</h2>
-    <ul>
-        <li>化粧品OEM（スキンケア、メイクアップ、ヘアケアなど）</li>
-        <li>健康食品OEM（サプリメント、パウダー、ドリンクなど）</li>
-        <li>パッケージデザイン・企画サポート</li>
-        <li>日本国内外の法規制対応支援</li>
-    </ul>
+    <section class="hero visible">
+        <img src="https://source.unsplash.com/1200x400/?cosmetics,beauty" alt="バナー画像">
+        <h2>美と健康を、世界へ。</h2>
+        <p>化粧品・健康食品のOEMパートナーとして、御社のブランドを形にします。</p>
+    </section>
 
-    <h2>お問い合わせ</h2>
-    <p>メール: mail.nishin@gmail.com</p>
-    <p>電話番号: 03-6228-7921</p>
-    <p>住所: 東京都</p>
+    <section id="about">
+        <h2>会社概要</h2>
+        <p>NEXTWORLDは、化粧品および健康食品のOEM製造を行う企業です。高品質かつ安心な製品を、柔軟な体制でご提供いたします。</p>
+    </section>
+
+    <section id="services">
+        <h2>サービス内容</h2>
+        <div class="services">
+            <div class="service-box">
+                <h3>化粧品OEM</h3>
+                <p>スキンケア、ヘアケア、メイクアップ製品など、小ロットから対応可能です。</p>
+            </div>
+            <div class="service-box">
+                <h3>健康食品OEM</h3>
+                <p>サプリメント、ドリンク、パウダーなど、目的に合わせてご提案します。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>お問い合わせ</h2>
+        <p>ご相談・お見積もりはお気軽にご連絡ください。</p>
+        <p>メール: <a href="mailto:mail.nishin@gmail.com">mail.nishin@gmail.com</a></p>
+        <p>電話番号: 03-6228-7921</p>
+        <a class="btn" href="mailto:mail.nishin@gmail.com">メールで問い合わせ</a>
+    </section>
+
+    <footer>
+        &copy; 2025 NEXTWORLD All Rights Reserved.
+    </footer>
+
+    <script>
+        // スクロールでフェードイン
+        const sections = document.querySelectorAll("section");
+        const options = { threshold: 0.2 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, options);
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
